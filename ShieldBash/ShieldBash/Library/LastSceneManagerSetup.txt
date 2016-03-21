@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Player Staging.unity
+- path: Assets/Scenes/Projectile Staging.unity
   isLoaded: 1
   isActive: 1
