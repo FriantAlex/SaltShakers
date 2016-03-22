@@ -9,7 +9,7 @@ public class Arrows : MonoBehaviour {
 
     void Awake()
     {
-        speed = 10f;
+        speed = 10f; //speed of arrow toward player
         isReady = false;
     }
 
@@ -24,7 +24,7 @@ public class Arrows : MonoBehaviour {
     void Update()
     {
 
-        if (isReady)
+        if (isReady == true)
         {
             Vector2 position = transform.position;
 
@@ -32,17 +32,6 @@ public class Arrows : MonoBehaviour {
 
             transform.position = position;
 
-            //bottom left point of the screen
-            Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-
-            //top right point of the screen
-            Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-
-            //destroy bullet if outside screen.
-            if ((transform.position.x < min.x) || (transform.position.y > min.y) || (transform.position.x < max.x) || (transform.position.y > max.y))
-            {
-                Destroy(gameObject);
-            }
         }
 
 
