@@ -18,10 +18,15 @@ public class Patrol : MonoBehaviour {
     public bool patrolLoop = true; // loops partol	
 	public int currentWayPoint = 0;//index of waypoint currently moving towards
     public bool changing;
+	public bool isStopped;
 	
 	// Update is called once per frame
 	void Update () {
 	
+		if (maxPatrolSpeed == 0) {
+			isStopped = true;
+		}
+
 		if (currentWayPoint < waypoints.Length)
         {
 			PatrolCycle ();

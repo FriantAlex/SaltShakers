@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Projectiles\BouncingLaser.cs">
     <Files>
-      <File FileName="Assets\Scripts\Projectiles\BouncingLaser.cs" Line="33" Column="13" />
-      <File FileName="Assets\Scripts\Projectiles\Ricochet.cs" Line="18" Column="3" />
-      <File FileName="Assets\Scripts\Projectiles\LookAtMouse.cs" Line="9" Column="2" />
+      <File FileName="Assets\Scripts\Projectiles\BouncingLaser.cs" Line="40" Column="3" />
+      <File FileName="Assets\Scripts\Movement\SpeedController.cs" Line="30" Column="32" />
+      <File FileName="Assets\Scripts\Movement\Patrol.cs" Line="27" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

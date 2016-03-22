@@ -8,7 +8,9 @@ public class BouncingLaser : MonoBehaviour
 	public int dist; //max travel distance
 	public LineRenderer line; // the laser
 	public string reflectTag;  // what the laser can bounce off of
+	public string targetTag;
 	public int limit; // how many times it can bounce
+	public bool isHit;
 
 	private int verti =  1;  //laser segment handler leave as is
 	private bool isActive;
@@ -17,9 +19,9 @@ public class BouncingLaser : MonoBehaviour
 
 	void Update(){
 
-		line.enabled = Input.GetKey (KeyCode.Space);
+	//	line.enabled = Input.GetKey (KeyCode.Space);
 
-		if (Input.GetKey (KeyCode.Space) || Input.GetKeyUp (KeyCode.Space))
+		//if (Input.GetKey (KeyCode.Space) || Input.GetKeyUp (KeyCode.Space))
 			DrawLaser ();
 	}
 
@@ -50,6 +52,7 @@ public class BouncingLaser : MonoBehaviour
 				line.SetPosition(vertexCounter-1, hit.point);
 				lastLaserPos = hit.point;
 				laserDir = Vector3.Reflect(laserDir, hit.normal);
+
 			} else {
 				Debug.Log ("No Boop");
 				timesReflected++;
@@ -59,10 +62,16 @@ public class BouncingLaser : MonoBehaviour
 
 				loopActive = false;
 			}
+
+			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == targetTag)
+				isHit = true;
+
 			if (timesReflected > limit)
 				loopActive = false;
 		}
 	}
+
+
 
 
 }

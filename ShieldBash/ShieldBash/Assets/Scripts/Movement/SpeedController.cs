@@ -28,7 +28,6 @@ public class SpeedController : MonoBehaviour {
                 return;
             }
             Debug.Log ("Boop");
-			//spawner start goes here
 			playerController.maxPatrolSpeed = maxSpeed;
 			playerController.acceleration = acc;
 		}
