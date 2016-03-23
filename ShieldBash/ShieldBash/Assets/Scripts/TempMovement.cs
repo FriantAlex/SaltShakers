@@ -18,10 +18,10 @@ public class TempMovement : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag ("Cart").GetComponent<Transform> ().position;
 
 		if (Input.GetKey (KeyCode.A))
-			transform.RotateAround (target, Vector3.up, -rotSpeed * Time.deltaTime);
+			transform.RotateAround (target, Vector3.forward, -rotSpeed * Time.deltaTime);
 
 		if(Input.GetKey(KeyCode.D))
-			transform.RotateAround (target, Vector3.up, rotSpeed * Time.deltaTime);
+			transform.RotateAround (target, Vector3.forward, rotSpeed * Time.deltaTime);
 
 
 	
