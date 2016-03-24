@@ -54,9 +54,11 @@ public class PlayerSighted : MonoBehaviour {
             enemyScript = enemies[i].GetComponent<Enemies>();
             enemyScript.playerSighted = true;
 
-            mageAttack = enemies[i].GetComponent<BouncingLaser>();
-            mageAttack.ifActive = true;
-
+            if (enemies[i].GetComponent<LineRenderer>() != null)
+            {
+                mageAttack = enemies[i].GetComponent<BouncingLaser>();
+                mageAttack.ifActive = true;
+            }
         }
     }
 }

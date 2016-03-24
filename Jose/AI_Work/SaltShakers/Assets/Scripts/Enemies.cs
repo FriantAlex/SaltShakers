@@ -7,7 +7,7 @@ public class Enemies : MonoBehaviour {
     private Transform myTransform;
     private GameObject playerGO;
     public bool playerSighted = false;
-
+    
 
     void Awake()
     {
@@ -21,7 +21,7 @@ public class Enemies : MonoBehaviour {
         playerGO = GameObject.FindGameObjectWithTag("Player");
 
         target = playerGO.transform;
-
+        
     }
 
     // Update is called once per frame

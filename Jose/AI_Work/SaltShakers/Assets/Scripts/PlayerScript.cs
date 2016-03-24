@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
 
-    public int health = 3;
+    public float health = 20;
     public bool collided = false;
+    public Slider healthBar;
 
 	// Use this for initialization
 	void Start () {
@@ -23,15 +25,26 @@ public class PlayerScript : MonoBehaviour {
 
         if (other.collider.tag == "Damage")
         {
-            health--;
+            ChangeHealthAndDeath();
+        }
 
-            collided = true;
+    }
 
-            if (health == 0)
-            {
-                Destroy(gameObject);
-            }
+    public void ChangeHealthAndDeath()
+    {
 
+        
+        health--;
+        
+        
+        healthBar.GetComponent<Slider>().value = health;
+
+        
+        collided = true;
+
+        if (health == 0)
+        {
+            Destroy(gameObject);
         }
 
     }
