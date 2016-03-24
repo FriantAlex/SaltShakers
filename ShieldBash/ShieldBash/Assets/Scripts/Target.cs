@@ -4,24 +4,32 @@ using System.Collections;
 public class Target : MonoBehaviour {
 
 	public Transform target;
+	public bool destroyed = false;
 
-	private BouncingLaser laser;
+
+	private GameObject[] laser;
 	// Use this for initialization
 	void Start () {
 	
+
 		target = GameObject.FindGameObjectWithTag ("Cart").GetComponent<Transform> ();
 
-		laser = GameObject.FindGameObjectWithTag ("Laser").GetComponent<BouncingLaser> ();
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		laser = GameObject.FindGameObjectsWithTag ("Enemy");
 	
 		transform.LookAt (target);
+		for (int i = 0; i < laser.Length; i++) {
 
-		if (laser.isHit)
-			Destroy (gameObject);
+			var hit = laser[i].GetComponent<BouncingLaser>();
+			if (hit.isHit)
+				Destroy (gameObject);
+
+		}
+
+		}
 	}
-		
-}

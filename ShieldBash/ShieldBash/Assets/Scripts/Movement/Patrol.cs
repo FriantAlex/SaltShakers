@@ -43,9 +43,10 @@ public class Patrol : MonoBehaviour {
 	void PatrolCycle()
     {
 		speed = Mathf.Lerp (speed, maxPatrolSpeed, acceleration * Time.deltaTime);
-		Vector3 nextWayPoint = waypoints[currentWayPoint].position;
-		Vector3 moveDirection = nextWayPoint - transform.position;
 
+		Vector3 nextWayPoint = waypoints[currentWayPoint].position;
+
+		Vector3 moveDirection = nextWayPoint - transform.position;
 		if(moveDirection.magnitude < 1.5)
         {
 			Debug.Log("Cart is about to change waypoint");          
@@ -64,9 +65,11 @@ public class Patrol : MonoBehaviour {
         else
         {
 			Debug.Log("Next waypoint in " + moveDirection.magnitude);
-			var rot = Quaternion.LookRotation(nextWayPoint - transform.position);
+
+			var rot = Quaternion.LookRotation(moveDirection.normalized,transform.up.normalized);
+
 			transform.rotation = Quaternion.Slerp(transform.rotation,rot,Time.deltaTime * dampingLook);
-			//charController.Move(moveDirection.normalized * patrolSpeed * Time.deltaTime);
+
 			transform.position = Vector3.MoveTowards (transform.position, nextWayPoint, speed * Time.deltaTime);
 		}
 	}

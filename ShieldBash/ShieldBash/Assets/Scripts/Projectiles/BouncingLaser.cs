@@ -8,7 +8,8 @@ public class BouncingLaser : MonoBehaviour
 	public int dist; //max travel distance
 	public LineRenderer line; // the laser
 	public string reflectTag;  // what the laser can bounce off of
-	public string targetTag;
+	public string targetTag; // checks for hitting targets
+	public string enemyTag; // checks for hitting enemis
 	public int limit; // how many times it can bounce
 	public bool isHit;
 
@@ -16,6 +17,11 @@ public class BouncingLaser : MonoBehaviour
 	private bool isActive;
 	private Vector3 currentRot; //current rotation
 	private Vector3 currentPos; //current position
+	private GameController gameController;
+
+	void Start(){
+		gameController = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameController>();
+	}
 
 	void Update(){
 
@@ -30,7 +36,7 @@ public class BouncingLaser : MonoBehaviour
 		int timesReflected = 1; //how many times the laser has bounced
 		int vertexCounter = 1; //how many segments there are
 		bool loopActive = true;
-		Vector3 laserDir = transform.up; // direction of the next laser
+		Vector3 laserDir = transform.right; // direction of the next laser
 		Vector3 lastLaserPos = transform.position; // orgin of the next laser
 		RaycastHit hit;
 
@@ -63,8 +69,13 @@ public class BouncingLaser : MonoBehaviour
 				loopActive = false;
 			}
 
-			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == targetTag)
+			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == targetTag){
 				isHit = true;
+				gameController.inZone = false;
+			}
+
+			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == enemyTag)
+				Destroy(this.gameObject);
 
 			if (timesReflected > limit)
 				loopActive = false;
