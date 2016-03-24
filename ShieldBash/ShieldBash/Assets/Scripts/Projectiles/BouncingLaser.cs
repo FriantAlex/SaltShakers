@@ -17,12 +17,17 @@ public class BouncingLaser : MonoBehaviour
 	private Vector3 currentRot; //current rotation
 	private Vector3 currentPos; //current position
 
+    public bool ifActive = false;
+
 	void Update(){
 
-	//	line.enabled = Input.GetKey (KeyCode.Space);
+        //	line.enabled = Input.GetKey (KeyCode.Space);
 
-		//if (Input.GetKey (KeyCode.Space) || Input.GetKeyUp (KeyCode.Space))
-			DrawLaser ();
+        //if (Input.GetKey (KeyCode.Space) || Input.GetKeyUp (KeyCode.Space))
+        if (ifActive == true)
+        {
+            DrawLaser();
+        }
 	}
 
 	void DrawLaser(){
