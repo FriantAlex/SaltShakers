@@ -6,13 +6,14 @@ public class PlayerSighted : MonoBehaviour {
 
     public List<GameObject> enemies;
 
-    private Enemies archerScript;
+    private Enemies enemyScript;
+    private BouncingLaser mageAttack;
 
     void Start()
     {
         enemies = new List<GameObject>();
 
-        //Debug.Log(transform.GetChild(0).gameObject.transform.childCount);
+        Debug.Log(transform.GetChild(0).gameObject.transform.childCount);
 
         int i = 0;
         for(i = 0; i < transform.GetChild(0).gameObject.transform.childCount; i++)
@@ -50,9 +51,13 @@ public class PlayerSighted : MonoBehaviour {
         for (i = 0; i < enemies.Count; i++){
 
             
-            archerScript = enemies[i].GetComponent<Enemies>();
+            enemyScript = enemies[i].GetComponent<Enemies>();
 
-            archerScript.playerSighted = true;
+            mageAttack = enemies[i].GetComponent<BouncingLaser>();
+
+            enemyScript.playerSighted = true;
+
+            mageAttack.ifActive = true;
 
         }
     }

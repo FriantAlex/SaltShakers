@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ArrowSocket.cs" />
     <Compile Include="Assets\Scripts\Arrows.cs" />
+    <Compile Include="Assets\Scripts\BouncingLaser.cs" />
     <Compile Include="Assets\Scripts\Enemies.cs" />
     <Compile Include="Assets\Scripts\MagicShield.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
