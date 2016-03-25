@@ -34,4 +34,15 @@ public class MeleeAttack : MonoBehaviour {
             canAttack = true;
         }
     }
+    
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            transform.position = transform.position;
+
+            //gameObject.AddComponent<Rigidbody2D>().AddForce(new Vector2(-target.transform.position.x, -target.transform.position.y));
+            
+        }
+    }
 }

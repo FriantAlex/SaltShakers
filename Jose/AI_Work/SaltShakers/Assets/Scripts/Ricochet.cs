@@ -58,5 +58,10 @@ public class Ricochet : MonoBehaviour {
             transform.position = this.transform.position;
             this.speed = 0;
         }
+
+        if (other.collider.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

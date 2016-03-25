@@ -35,7 +35,7 @@ public class BouncingLaser : MonoBehaviour
 		int timesReflected = 1; //how many times the laser has bounced
 		int vertexCounter = 1; //how many segments there are
 		bool loopActive = true;
-		Vector3 laserDir = transform.right; // direction of the next laser
+		Vector3 laserDir = -transform.up; // direction of the next laser
 		Vector3 lastLaserPos = this.transform.position; // orgin of the next laser
 		RaycastHit hit;
 
@@ -69,7 +69,22 @@ public class BouncingLaser : MonoBehaviour
 			}
 
 			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == targetTag)
-				isHit = true;
+            {
+                isHit = true;
+
+                string hitObject;
+                hitObject = hit.transform.gameObject.transform.parent.name.ToString();
+                Debug.Log(hitObject);
+
+                Destroy(hit.transform.gameObject.transform.parent.gameObject);
+                
+
+            }
+            else
+            {
+                isHit = false;
+            }
+				
 
 			if (timesReflected > limit)
 				loopActive = false;
