@@ -1,12 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TempMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Projectiles/Ricochet.cs">
     <Files>
-      <File FileName="Assets\Scripts\TempMovement.cs" Line="9" Column="30" />
-      <File FileName="Assets\Scripts\Projectiles\BouncingLaser.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Movement\SpeedController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Movement\Patrol.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Movement\CameraController.cs" Line="19" Column="46" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="37" Column="36" />
+      <File FileName="Assets/Scripts/PlayerSighted.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Target.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Projectiles/BouncingLaser.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemies.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Projectiles/Ricochet.cs" Line="31" Column="54" />
+      <File FileName="Assets/Scripts/Arrows.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

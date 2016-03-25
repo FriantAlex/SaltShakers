@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour {
 
         if (active)
         {
-			Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y,Random.Range(-spawnValues.z, spawnValues.z));
+			Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x),Random.Range(-spawnValues.y, spawnValues.y),spawnValues.z);
 
 			Instantiate(prefabs[Random.Range(0, prefabs.Length)], spawnPosition,transform.rotation);
             ResetDelay();
