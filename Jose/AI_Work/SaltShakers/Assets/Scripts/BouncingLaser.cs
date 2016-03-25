@@ -37,7 +37,7 @@ public class BouncingLaser : MonoBehaviour
 		bool loopActive = true;
 		Vector3 laserDir = transform.right; // direction of the next laser
 		Vector3 lastLaserPos = this.transform.position; // orgin of the next laser
-		RaycastHit2D hit;
+		RaycastHit hit;
 
 		line.SetVertexCount (1);
 		line.SetPosition (0, transform.position);
@@ -46,7 +46,7 @@ public class BouncingLaser : MonoBehaviour
 		while (loopActive) {
 			 
 
-			if (Physics2D.Raycast(lastLaserPos, laserDir hit dist) && hit.transform.gameObject.tag == reflectTag) {
+			if (Physics.Raycast(lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == reflectTag) {
 
 				Debug.Log ("Boop");
 				timesReflected++;

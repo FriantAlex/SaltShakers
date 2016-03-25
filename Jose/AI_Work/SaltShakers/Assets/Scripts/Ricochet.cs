@@ -48,4 +48,15 @@ public class Ricochet : MonoBehaviour {
         Gizmos.DrawLine(transform.position, transform.forward);
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            this.GetComponent<BoxCollider2D>().enabled = false;
+            this.transform.parent = playerGO.transform;
+            transform.position = this.transform.position;
+            this.speed = 0;
+        }
+    }
 }
