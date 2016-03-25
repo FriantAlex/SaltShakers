@@ -5,7 +5,7 @@ using System.Collections;
 
 public class ArrowSocket : MonoBehaviour {
     public GameObject arrowGO;
-    public float shootTimer = 10f;
+    //public float shootTimer = 10f;
     public float timeElapse = 0.0f;
     public float delay = 0.0f;
 
@@ -69,7 +69,7 @@ public class ArrowSocket : MonoBehaviour {
 
             Vector2 direction = playerGO.transform.position - arrows.transform.position; // Check for the direction of the player(where to shoot at)
             
-            arrows.GetComponent<Arrows>().SetDirection(direction); //sets the direction of the bullet and shoots.
+            //arrows.GetComponent<Arrows>().SetDirection(direction); //sets the direction of the bullet and shoots.
 
             
 
