@@ -6,13 +6,8 @@ public class PlayerSighted : MonoBehaviour {
 
     public List<GameObject> enemies;
 
-	private GameController gameController;
     private Enemies archerScript;
 
-
-	void Awake(){
-		gameController = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameController> ();
-	}
     void Start()
     {
 		
@@ -38,7 +33,6 @@ public class PlayerSighted : MonoBehaviour {
         {
 
           //  EnemyActive();
-			gameController.inZone = true;
 
            // Debug.Log("Player Collided");
         }
@@ -53,7 +47,6 @@ public class PlayerSighted : MonoBehaviour {
 		{
 			
 			//  EnemyActive();
-			gameController.inZone = false;
 			
 			// Debug.Log("Player Collided");
 		}

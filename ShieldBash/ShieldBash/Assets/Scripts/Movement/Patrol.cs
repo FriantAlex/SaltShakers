@@ -19,10 +19,12 @@ public class Patrol : MonoBehaviour {
 	public int currentWayPoint = 0;//index of waypoint currently moving towards
     public bool changing;
 	public bool isStopped;
-	
+
+
 	// Update is called once per frame
 	void Update () {
-	
+
+
 		if (maxPatrolSpeed == 0) {
 			isStopped = true;
 		}
@@ -42,12 +44,13 @@ public class Patrol : MonoBehaviour {
 
 	void PatrolCycle()
     {
+		
 		speed = Mathf.Lerp (speed, maxPatrolSpeed, acceleration * Time.deltaTime);
 
 		Vector3 nextWayPoint = waypoints[currentWayPoint].position;
 
 		Vector3 moveDirection = nextWayPoint - transform.position;
-		if(moveDirection.magnitude < 1.5)
+		if(moveDirection.magnitude < .1)
         {
 			Debug.Log("Cart is about to change waypoint");          
 			if(curTime == 0)
@@ -66,9 +69,10 @@ public class Patrol : MonoBehaviour {
         {
 			Debug.Log("Next waypoint in " + moveDirection.magnitude);
 
-			var rot = Quaternion.LookRotation(moveDirection.normalized,transform.up.normalized);
 
-			transform.rotation = Quaternion.Slerp(transform.rotation,rot,Time.deltaTime * dampingLook);
+			float angle = Mathf.Atan2(moveDirection.y,moveDirection.x)*Mathf.Rad2Deg -  90;
+			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+
 
 			transform.position = Vector3.MoveTowards (transform.position, nextWayPoint, speed * Time.deltaTime);
 		}

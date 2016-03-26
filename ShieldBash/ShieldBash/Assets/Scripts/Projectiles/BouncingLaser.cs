@@ -17,10 +17,8 @@ public class BouncingLaser : MonoBehaviour
 	private bool isActive;
 	private Vector3 currentRot; //current rotation
 	private Vector3 currentPos; //current position
-	private GameController gameController;
 
 	void Start(){
-		gameController = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameController>();
 	}
 
 	void Update(){
@@ -71,7 +69,6 @@ public class BouncingLaser : MonoBehaviour
 
 			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == targetTag){
 				isHit = true;
-				gameController.inZone = false;
 			}
 
 			if (Physics.Raycast (lastLaserPos, laserDir, out hit, dist) && hit.transform.gameObject.tag == enemyTag)
