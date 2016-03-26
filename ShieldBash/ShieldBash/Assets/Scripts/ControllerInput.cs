@@ -69,7 +69,7 @@ public class ControllerInput : MonoBehaviour {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;//Returns angle whose tangent is y/x
             if (direction.magnitude > 0.0f)//If input
             {
-                Vector3 newAngles = new Vector3(0f, 0f, -angle);//take in inverse angle with new vector3 because controller is invert natively
+                Vector3 newAngles = new Vector3(0f, 0f, -angle - 90);//take in inverse angle with new vector3 because controller is invert natively
                 transform.eulerAngles = newAngles;//apply to euler
             }
         }
@@ -79,7 +79,7 @@ public class ControllerInput : MonoBehaviour {
             float rightAngle = Mathf.Atan2(rightDirection.y, rightDirection.x) * Mathf.Rad2Deg;//Returns angle whose tangent is y/x
             if (rightDirection.magnitude > 0.0f)
             {
-                Vector3 newRightAngles = new Vector3(0f, 0f, -rightAngle);
+                Vector3 newRightAngles = new Vector3(0f, 0f, -rightAngle - 90);
                 transform.eulerAngles = newRightAngles;
             }
         }
